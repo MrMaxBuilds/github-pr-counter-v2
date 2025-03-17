@@ -26,9 +26,9 @@ export default function LoginPage() {
   };
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center min-h-screen">
       {error && <ErrorMessage message="Authentication failed. Please try again." />}
-      <h1>Login</h1>
+      <h1 className="text-2xl font-bold mb-4">Login</h1>
       <button 
         onClick={handleGitHubLogin}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
