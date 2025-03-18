@@ -22,8 +22,6 @@ export default function LoginPage() {
 
     if (error) {
       console.error("Error logging in with GitHub:", error.message);
-    } else {
-      // Redirect happens automatically via OAuth flow
     }
   };
 

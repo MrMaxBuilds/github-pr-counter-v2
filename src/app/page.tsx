@@ -2,6 +2,8 @@
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Header from "@/components/Header";
+import PRInfo from "@/components/githubResults/PRInfo";
+import TokenHandler from "@/components/TokenHandler";
 
 export default async function Home() {
   const supabase = await createClient();
@@ -15,8 +17,8 @@ export default async function Home() {
     <div className="min-h-screen flex flex-col">
       <Header user={user} />
       <main className="flex-1 flex flex-col items-center justify-center p-4">
-        <h1 className="text-2xl font-bold mb-4">Welcome to the Dashboard</h1>
-        <p className="text-gray-600">This is your personalized dashboard.</p>
+        <TokenHandler />
+        <PRInfo />
       </main>
     </div>
   );
