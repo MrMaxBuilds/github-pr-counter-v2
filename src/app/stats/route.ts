@@ -1,5 +1,4 @@
 // src/app/stats/route.ts
-import { createClient } from '@/utils/supabase/server';
 import { NextRequest, NextResponse } from 'next/server';
 import { getMergedPRStats } from '@/utils/github/get-prs';
 
@@ -16,10 +15,10 @@ export async function GET(request: NextRequest) {
   }
 
   const authHeader = request.headers.get('Authorization');
-  let githubToken = authHeader ? authHeader.replace('Bearer ', '') : null;
+  const githubToken = authHeader ? authHeader.replace('Bearer ', '') : null;
   
   // Check for refresh token
-  const refreshToken = request.headers.get('X-Refresh-Token');
+  // const refreshToken = request.headers.get('X-Refresh-Token');
 
   // TODO Handle refresh token
   
@@ -60,14 +59,7 @@ export async function GET(request: NextRequest) {
       startDate,
       endDate
     );
-    
-    // If we got a refreshed token, include it in the response
-    // if (refreshedToken) {
-    //   return NextResponse.json({
-    //     ...stats,
-    //     _refreshedToken: refreshedToken
-    //   });
-    // }
+
     console.log('stats', stats);
     
     return NextResponse.json(stats);
