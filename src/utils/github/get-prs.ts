@@ -65,7 +65,8 @@ export async function getMergedPRStats(
     while (true) {
       const response = await fetch(url, { headers });
       if (!response.ok) {
-        throw new Error(`Failed to fetch search results: ${response}`);
+        const responseBody = await response.text();
+        throw new Error(`Failed to fetch search results: ${responseBody}`);
       }
       const data = await response.json();
       const items = data.items || [];
