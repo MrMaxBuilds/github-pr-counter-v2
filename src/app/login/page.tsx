@@ -10,6 +10,7 @@ import { Suspense } from "react";
 function LoginForm() {
   const searchParams = useSearchParams();
   const error = searchParams.get("error");
+  console.log("made it");
 
   const handleGitHubLogin = async () => {
     const redirectTo = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/callback`;
